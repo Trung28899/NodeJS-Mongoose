@@ -67,9 +67,33 @@ III. Module Notes:
 
     2. Basic CRUD operations: 
         a. Creating Product Schema: 
-        - Code in 2nd Commit
-        - ./models/product.js: to see how to create a product 
-            schema
+            - Code in 3rd Commit
+            - ./models/product.js: to see how to create a product 
+                schema
+        
+        b. Fetching Data: 
+            - Code in 3rd Commit
+            - Fetching all products: 
+                +, using find() > mongoose method to find all 
+                +, ./controllers/shop.js: under getProducts(), 
+                and getIndex()
+
+            - Fetching a single product: 
+                +, using findById(id)
+                +, ./controllers/shop.js: under getProducts(), 
+                and getIndex() 
+        
+        c. Updating Product: 
+            - Code in 3rd Commit
+            - Using save() method provided by Mongoose
+            - ./models/admin.js under postEditProduct()
+        
+        d. Deleting Product: 
+            - Code in 3rd Commit
+            - Using findByIdAndRemove(id) provided by mongoose
+            - ./models/admin.js under findByIdAndRemove()
+
+        
 
 
 IV. Other Notes: 

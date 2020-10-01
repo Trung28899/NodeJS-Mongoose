@@ -2,7 +2,11 @@ const Product = require("../models/product");
 
 // click Products > '/products'
 exports.getProducts = (req, res, next) => {
-  Product.fetchAll()
+  /*
+    find() in mongoose is a static method
+    giving us all products
+  */
+  Product.find()
     .then((products) => {
       res.render("shop/product-list", {
         prods: products,
@@ -19,6 +23,9 @@ exports.getProducts = (req, res, next) => {
 exports.getProduct = (req, res, next) => {
   const prodID = req.params.productId;
 
+  /*
+    .findById() is included in mongoose
+  */
   Product.findById(prodID)
     .then((product) => {
       res.render("shop/product-detail", {
@@ -32,7 +39,7 @@ exports.getProduct = (req, res, next) => {
 
 // main page > "/"
 exports.getIndex = (req, res, next) => {
-  Product.fetchAll()
+  Product.find()
     .then((products) => {
       res.render("shop/index", {
         prods: products,
