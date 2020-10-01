@@ -101,11 +101,15 @@ III. Module Notes:
                 to request
         
         b. Relation in Mongoose
-            - Code in 5th Commit
+            - Code in 6th Commit
             - In here, we're trying to have to product to have the user
                 id so it indicates that the product belong to which user
+            - ./controllers/admin.js: under postAddProduct() to see 
+                how a product is created with user id
+
             - ./models/product.js: There is a 'userId' field with 'ref: "User"'
-                > this refer that the userId is the id of the user In users collection
+                > this indicate that the userId refer to id of 
+                some user In users collection
             - Same thing if you look into the cart of ./models/user.js
 
 
