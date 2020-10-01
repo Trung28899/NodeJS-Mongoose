@@ -92,6 +92,13 @@ III. Module Notes:
             - Code in 3rd Commit
             - Using findByIdAndRemove(id) provided by mongoose
             - ./models/admin.js under findByIdAndRemove()
+    
+    3. Relational operations in Mongoose: 
+        a. Adding a new user: 
+            - Code in 4th Commit
+            - ./models/user.js: for user schema
+            - app.js: for creating new user and storing user 
+                to request
 
         
 
