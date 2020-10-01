@@ -3,11 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 /*
-    Defining how the products should look like
-    with their data type
-
-    Note that the id is not defined here but
-    it is automatically generated
+    In userId, we have ref: 'User' which is refering to 
+    the user model
+    It has to match the 1st argument of the export in user.js 
+    model
 */
 const productSchema = new Schema({
   title: {
@@ -25,6 +24,11 @@ const productSchema = new Schema({
   imageUrl: {
     type: String,
     required: true,
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    require: true,
   },
 });
 

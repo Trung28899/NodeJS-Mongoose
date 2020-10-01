@@ -97,8 +97,17 @@ III. Module Notes:
         a. Adding a new user: 
             - Code in 4th Commit
             - ./models/user.js: for user schema
-            - app.js: for creating new user and storing user 
+            - app.js: for creating new user and passing user 
                 to request
+        
+        b. Relation in Mongoose
+            - Code in 5th Commit
+            - In here, we're trying to have to product to have the user
+                id so it indicates that the product belong to which user
+            - ./models/product.js: There is a 'userId' field with 'ref: "User"'
+                > this refer that the userId is the id of the user In users collection
+            - Same thing if you look into the cart of ./models/user.js
+
 
         
 
