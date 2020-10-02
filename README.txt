@@ -144,6 +144,12 @@ III. Module Notes:
             - ./controllers/shop.js: under postOrder() to see how 
                 to create an order
         
+        d. Clearing cart after send an order: 
+            - code in 11st Commit
+            - ./model/user.js: clearCart() for cart clearing 
+                operation
+            - ./controllers/shop.js: under postOrder()
+        
 
 
 IV. Other Notes: 
