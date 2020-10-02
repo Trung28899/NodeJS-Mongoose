@@ -131,7 +131,8 @@ III. Module Notes:
                     populate()
         
         b. Removing items from cart: 
-            - Code in 9th Commit
+            - Code in 9th Commit, will show creating an order, contains
+                both creating order and removing items
             - ./models/user.js: find removeFromCart() to see how we 
                 operate this operation
             - ./controllers/shop.js: under postCartDeleteProduct()
