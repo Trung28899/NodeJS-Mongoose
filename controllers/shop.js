@@ -1,11 +1,8 @@
 const Product = require("../models/product");
+const Order = require("../models/order");
 
 // click Products > '/products'
 exports.getProducts = (req, res, next) => {
-  /*
-    find() in mongoose is a static method
-    giving us all products
-  */
   Product.find()
     .then((products) => {
       res.render("shop/product-list", {
@@ -23,9 +20,6 @@ exports.getProducts = (req, res, next) => {
 exports.getProduct = (req, res, next) => {
   const prodID = req.params.productId;
 
-  /*
-    .findById() is included in mongoose
-  */
   Product.findById(prodID)
     .then((product) => {
       res.render("shop/product-detail", {
@@ -54,21 +48,6 @@ exports.getIndex = (req, res, next) => {
 
 // click Cart > "/cart" => GET
 exports.getCart = (req, res, next) => {
-  /*
-    populate() function explanation
-
-    Have a look in users collection, 
-    the cart.items having items with productId and 
-    quantity only (of course with its own unique id)
-
-    populate("cart.items.productId") fetch all the details
-    of the product with the correct productId from the 
-    product collection. All the details will be put under productId. 
-    That's what populate does
-
-    execPopulate() turn the return from populate()
-    to a promise
-  */
   req.user
     .populate("cart.items.productId")
     .execPopulate()
@@ -100,7 +79,7 @@ exports.postCart = (req, res, next) => {
 exports.postCartDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
   req.user
-    .deleteById(prodId)
+    .removeFromCart(prodId)
     .then((result) => {
       res.redirect("/cart");
     })
@@ -108,9 +87,22 @@ exports.postCartDeleteProduct = (req, res, next) => {
 };
 
 exports.postOrder = (req, res, next) => {
-  let fetchedCart;
   req.user
-    .addOrder()
+    .populate("cart.items.productId")
+    .execPopulate()
+    .then((user) => {
+      const products = user.cart.items.map((item) => {
+        return { quantity: item.quantity, product: { ...item.productId._doc } };
+      });
+      const order = new Order({
+        user: {
+          name: req.user.name,
+          userId: req.user._id,
+        },
+        products: products,
+      });
+      return order.save();
+    })
     .then((result) => {
       res.redirect("/orders");
     })

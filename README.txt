@@ -117,6 +117,7 @@ III. Module Notes:
                 udemy.com/course/nodejs-the-complete-guide/learn/lecture/11954172#content
 
     4. Other operations: 
+
         a. Adding to Cart, Fetching from Cart and working with populate(): 
             - Code in 8th Commit
             - Adding to Cart: 
@@ -128,7 +129,19 @@ III. Module Notes:
                 +, ./controllers/shop.js: under getCart() to see how 
                     to fetch products from cart and how to work with  
                     populate()
+        
+        b. Removing items from cart: 
+            - Code in 9th Commit
+            - ./models/user.js: find removeFromCart() to see how we 
+                operate this operation
+            - ./controllers/shop.js: under postCartDeleteProduct()
+                to see how we do that 
 
+        c. Create an Orders: 
+            - Code in 10th Commit
+            - ./models/order.js: creating order model
+            - ./controllers/shop.js: under postOrder() to see how 
+                to create an order
         
 
 
