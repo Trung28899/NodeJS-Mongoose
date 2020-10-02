@@ -54,10 +54,26 @@ exports.getIndex = (req, res, next) => {
 
 // click Cart > "/cart" => GET
 exports.getCart = (req, res, next) => {
+  /*
+    populate() function explanation
+
+    Have a look in users collection, 
+    the cart.items having items with productId and 
+    quantity only (of course with its own unique id)
+
+    populate("cart.items.productId") fetch all the details
+    of the product with the correct productId from the 
+    product collection. All the details will be put under productId. 
+    That's what populate does
+
+    execPopulate() turn the return from populate()
+    to a promise
+  */
   req.user
-    .getCart()
-    .then((products) => {
-      // console.log(products);
+    .populate("cart.items.productId")
+    .execPopulate()
+    .then((user) => {
+      const products = user.cart.items;
       res.render("shop/cart", {
         path: "/cart",
         pageTitle: "Your Cart",
@@ -68,7 +84,7 @@ exports.getCart = (req, res, next) => {
 };
 
 // click Cart > "/cart" => POST
-exports.postCard = (req, res, next) => {
+exports.postCart = (req, res, next) => {
   const prodId = req.body.productId;
   Product.findById(prodId)
     .then((product) => {

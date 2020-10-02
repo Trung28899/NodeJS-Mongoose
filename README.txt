@@ -112,6 +112,22 @@ III. Module Notes:
                 some user In users collection
             - Same thing if you look into the cart of ./models/user.js
 
+            NOTE: how to target and populate related data only
+                > see video 219, we don't implement it here
+                udemy.com/course/nodejs-the-complete-guide/learn/lecture/11954172#content
+
+    4. Other operations: 
+        a. Adding to Cart, Fetching from Cart and working with populate(): 
+            - Code in 7th Commit
+            - Adding to Cart: 
+                +, ./models/user.js: to see how addToCart() function 
+                    is handled
+                +, ./controllers/shop.js: under postCart() to see how  
+                    to add to cart
+            - Fetching products from cart and working with populate(): 
+                +, ./controllers/shop.js: under getCart() to see how 
+                    to fetch products from cart and how to work with  
+                    populate()
 
         
 
