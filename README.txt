@@ -149,6 +149,10 @@ III. Module Notes:
             - ./model/user.js: clearCart() for cart clearing 
                 operation
             - ./controllers/shop.js: under postOrder()
+            
+        e. Fetching Orders: 
+            - Code in 12nd Commit
+            - ./controllers/shop.js: under getOrders()
         
 
 

@@ -113,9 +113,11 @@ exports.postOrder = (req, res, next) => {
 };
 
 // click Orders > "/orders"
+/*
+  See the db for this query
+*/
 exports.getOrders = (req, res, next) => {
-  req.user
-    .getOrders()
+  Order.find({ "user.userId": req.user._id })
     .then((orders) => {
       res.render("shop/orders", {
         path: "/orders",
