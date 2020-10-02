@@ -118,7 +118,7 @@ III. Module Notes:
 
     4. Other operations: 
         a. Adding to Cart, Fetching from Cart and working with populate(): 
-            - Code in 7th Commit
+            - Code in 8th Commit
             - Adding to Cart: 
                 +, ./models/user.js: to see how addToCart() function 
                     is handled
